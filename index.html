@@ -284,7 +284,7 @@ Em teoria, esse resultado é mais sincero do que a nossa escolha pessoal.</p>
 <ul id="evaluating" class="item-list">
 </ul>
 
-<p id="buttons"><button id="pick">Escolher</button> <button id="pass">Passar</button> <button id="undo">Voltar</button></p>
+<p id="buttons"><button id="pick">Escolher</button> <button id="pass">Pular</button> <button id="undo">Voltar</button></p>
 </div>
 
 <div id="secondary">
@@ -384,7 +384,35 @@ var sortable = new Sortable(pickerUI.elem.favorites.get(0), {
 <br>
 <h2>Use o vídeo abaixo pra escutar e comparar as músicas.</h2>
 
-<!-- <p><a href="#" onclick="ytplayer.seekTo(42)">30 segundos</a></p> -->
+<p>
+<button id= 'mmpr' onclick="pulaTempo(0)">Mighty Morphin</button>
+<button id= 'alien' onclick="pulaTempo(60)">Alien Rangers</button>
+<button id= 'zeo' onclick="pulaTempo(121)">Zeo Rangers</button>
+<button id= 'turbo' onclick="pulaTempo(181)">Turbo Rangers</button>
+<button id= 'space' onclick="pulaTempo(212)">In Space</button>
+<button id= 'galaxy' onclick="pulaTempo(258)">Lost Galaxy</button>
+<button id= 'rescue' onclick="pulaTempo(317)">Lightspeed Rescue</button>
+<button id= 'time' onclick="pulaTempo(378)">Time Force</button>
+<button id= 'wild' onclick="pulaTempo(439)">Wild Force</button>
+<button id= 'ninjastorm' onclick="pulaTempo(500)">Ninja Storm</button>
+<button id= 'dinothunder' onclick="pulaTempo(560)">Dino Thunder</button>
+<button id= 'spd' onclick="pulaTempo(620)">S.P.D.</button>
+<button id= 'mystic' onclick="pulaTempo(680)">Mystic Force</button>
+<button id= 'overdrive' onclick="pulaTempo(737)">Operation Overdrive</button>
+<button id= 'jungle' onclick="pulaTempo(798)">Jungle Fury</button>
+<button id= 'rpm' onclick="pulaTempo(859)">RPM (fake?)</button>
+<button id= 'samurai' onclick="pulaTempo(918)">Samurai</button>
+<button id= 'megaforce' onclick="pulaTempo(998)">Megaforce</button>
+<button id= 'dinocharge' onclick="pulaTempo(1117)">Dino Charge</button>
+<button id= 'ninjasteel' onclick="pulaTempo(1177)">Ninja Steel</button>
+</p>
+
+<script>
+function pulaTempo(seconds) {
+	player.seekTo(seconds, true)
+}
+</script>
+
 
 <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
 <div id="player"></div>

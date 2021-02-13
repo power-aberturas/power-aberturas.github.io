@@ -19,10 +19,10 @@
 
         this.messages = $.extend({
             reset: "Reset",
-            mustSelect: "You must select something first! If you're indifferent, press Pass.",
-            orderedAll: "You have ordered every available item!",
-            noItems: "There are no items that fit your criteria! Set some different options and try again.",
-            resetWarning: "Are you sure you wish to reset your state? All your found favorites and current progress will be lost."
+            mustSelect: "Escolha alguma coisa! Se não quiser nenhuma, aperte em \"Pular\".",
+            orderedAll: "Você já terminou com todas as opções!",
+            noItems: "Não tem mais nada! Tente com outras opções.",
+            resetWarning: "Quer mesmo reiniciar? Todo o progresso será perdido."
         }, this.options.messages);
 
         /* MUTABLE UI STATE */
