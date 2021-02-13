@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="initial-scale=1.0">
-<title>Tenho muito tempo livre...</title>
+<title>Power Aberturas</title>
 <style>
 body {
     background:#FFF;
@@ -335,8 +335,9 @@ var items = [
     {id: 'megaforce', name: 'Megaforce', image:'megaforce.png'},
     {id: 'dinocharge', name: 'Dino Charge', image:'dinocharge.png'},
     {id: 'ninjasteel', name: 'Ninja Steel', image:'ninjasteel.png'},
-    //{id: 'hyper', name: 'Hyper Force'},
-    //{id: 'beast', name: 'Beast Morphers'},
+    {id: 'hyper', name: 'Hyper Force', image:'hyper.png'},
+    {id: 'beast', name: 'Beast Morphers', image:'beast.png'},
+    {id: 'dinofury', name: 'Dino Fury', image:'dinofury.png'}
 ];
 
 var myPicker = new picker.Picker({
@@ -386,25 +387,28 @@ var sortable = new Sortable(pickerUI.elem.favorites.get(0), {
 
 <p>
 <button id= 'mmpr' onclick="pulaTempo(0)">Mighty Morphin</button>
-<button id= 'alien' onclick="pulaTempo(60)">Alien Rangers</button>
-<button id= 'zeo' onclick="pulaTempo(121)">Zeo Rangers</button>
-<button id= 'turbo' onclick="pulaTempo(181)">Turbo Rangers</button>
-<button id= 'space' onclick="pulaTempo(212)">In Space</button>
-<button id= 'galaxy' onclick="pulaTempo(258)">Lost Galaxy</button>
-<button id= 'rescue' onclick="pulaTempo(317)">Lightspeed Rescue</button>
-<button id= 'time' onclick="pulaTempo(378)">Time Force</button>
-<button id= 'wild' onclick="pulaTempo(439)">Wild Force</button>
-<button id= 'ninjastorm' onclick="pulaTempo(500)">Ninja Storm</button>
-<button id= 'dinothunder' onclick="pulaTempo(560)">Dino Thunder</button>
-<button id= 'spd' onclick="pulaTempo(620)">S.P.D.</button>
-<button id= 'mystic' onclick="pulaTempo(680)">Mystic Force</button>
-<button id= 'overdrive' onclick="pulaTempo(737)">Operation Overdrive</button>
-<button id= 'jungle' onclick="pulaTempo(798)">Jungle Fury</button>
-<button id= 'rpm' onclick="pulaTempo(859)">RPM (fake?)</button>
-<button id= 'samurai' onclick="pulaTempo(918)">Samurai</button>
-<button id= 'megaforce' onclick="pulaTempo(998)">Megaforce</button>
-<button id= 'dinocharge' onclick="pulaTempo(1117)">Dino Charge</button>
-<button id= 'ninjasteel' onclick="pulaTempo(1177)">Ninja Steel</button>
+<button id= 'alien' onclick="pulaTempo(180)">Alien Rangers</button>
+<button id= 'zeo' onclick="pulaTempo(241)">Zeo Rangers</button>
+<button id= 'turbo' onclick="pulaTempo(271)">Turbo Rangers</button>
+<button id= 'space' onclick="pulaTempo(212+90)">In Space</button>
+<button id= 'galaxy' onclick="pulaTempo(258+90)">Lost Galaxy</button>
+<button id= 'rescue' onclick="pulaTempo(317+91)">Lightspeed Rescue</button>
+<button id= 'time' onclick="pulaTempo(378+91)">Time Force</button>
+<button id= 'wild' onclick="pulaTempo(439+91)">Wild Force</button>
+<button id= 'ninjastorm' onclick="pulaTempo(602)">Ninja Storm</button>
+<button id= 'dinothunder' onclick="pulaTempo(560+91)">Dino Thunder</button>
+<button id= 'spd' onclick="pulaTempo(620+91)">S.P.D.</button>
+<button id= 'mystic' onclick="pulaTempo(680+92)">Mystic Force</button>
+<button id= 'overdrive' onclick="pulaTempo(737+94)">Operation Overdrive</button>
+<button id= 'jungle' onclick="pulaTempo(798+95)">Jungle Fury</button>
+<button id= 'rpm' onclick="pulaTempo(859+93)">RPM</button>
+<button id= 'samurai' onclick="pulaTempo(918+94)">Samurai</button>
+<button id= 'megaforce' onclick="pulaTempo(1131)">Megaforce</button>
+<button id= 'dinocharge' onclick="pulaTempo(1251)">Dino Charge</button>
+<button id= 'ninjasteel' onclick="pulaTempo(1435)">Ninja Steel</button>
+<s><a>Hyperforce</a></s>
+<s><a>Beast Morphers</a></s>
+<s><a>Dino Fury</a></s>
 </p>
 
 <script>
@@ -429,9 +433,10 @@ function pulaTempo(seconds) {
       var player;
       function onYouTubeIframeAPIReady() {
         player = new YT.Player('player', {
-          height: '480',
-          width: '852',
-          videoId: 'Z0miiVgII14',
+          height: '405',
+          width: '720',
+          //9-bqOz9WriQ vai ate ninja steel
+          videoId: '9-bqOz9WriQ',
           events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
