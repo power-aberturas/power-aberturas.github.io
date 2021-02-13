@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0">
+<title>Kamen Rider (Heisei) - Aberturas</title>
+<style>
+body {
+    background:#FFF;
+    color:#000;
+    font-family:verdana, sans-serif;
+    font-size:10pt;
+    margin:0;
+    padding:10px;
+}
+
+a:link, a:visited {
+    color:#008;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+a:active, a:hover {
+    color:#6ded85;
+}
+
+.info {
+    font-weight:bold;
+}
+
+button {
+    font-family:inherit;
+    cursor:pointer;
+    border:0;
+    border-radius:3px;
+    padding:0.3em 0.5em;
+    background:#CCC;
+    color:#000;
+}
+
+button:hover {
+    background:#DDD;
+}
+
+button.disabled {
+    background:#DDD;
+    color:#888;
+    cursor:not-allowed;
+}
+
+button.disabled:hover {
+    background:#DDD;
+}
+
+#container {
+    position:relative;
+    margin-left:-10px;
+    margin-right:-10px;
+    padding:10px;
+    overflow:hidden;
+}
+
+@media (min-width:1024px) {
+    /* Put the found favorites beside the picking div when the window is sufficiently large */
+    #picking {
+        float:left;
+        width:636px;
+    }
+
+    #secondary {
+        margin-left:646px;
+    }
+}
+
+@media (min-width:1300px) {
+    /* Once we get to the point where 636px is less than half of the width of the screen, make the picking div just take up half */
+    #picking {
+        width:50%;
+    }
+
+    #secondary {
+        margin-left:51%;
+    }
+}
+
+#pick {
+    background:#14b55a;
+    color:#FFF;
+    font-size:larger;
+    font-weight:bold;
+    width:6em;
+    border-radius:5px;
+    margin-right:10px;
+}
+
+#pick.disabled {
+    background:#6ded85;
+}
+
+#pick:hover {
+    background:#6ded85;
+}
+
+.item-list {
+    padding:0;
+    list-style-type:none;
+    line-height:100px;
+}
+
+.item-list li {
+    margin:0;
+    display:inline-block;
+    height:100px;
+    width:100px;
+    line-height:100px;
+    border:3px solid transparent;
+    text-align:center;
+    position:relative;
+    vertical-align:top;
+    overflow:hidden;
+    border-radius:53px;
+    background:#F7F7F7;
+    color:#000;
+}
+
+.item-list li img {
+    vertical-align:middle;
+    max-height:100%;
+    max-width:100%;
+}
+
+.item-list li span {
+    display:inline-block;
+    vertical-align:middle;
+    line-height:1.2;
+}
+
+@media (max-width:636px) {
+    .item-list {
+        line-height:75px;
+    }
+
+    .item-list li {
+        line-height:75px;
+        height:75px;
+        width:75px;
+    }
+}
+
+@media (max-width:423px) {
+    .item-list {
+        line-height:50px;
+    }
+
+    .item-list li {
+        line-height:50px;
+        height:50px;
+        width:50px;
+    }
+}
+
+#evaluating li {
+    cursor:pointer;
+}
+
+#favorites li {
+    cursor:move;
+}
+
+.item-list li:hover {
+    background:#CDF;
+}
+
+.item-list.sorting li:hover {
+    background:#F7F7F7;
+}
+
+#evaluating li.selected {
+    border:3px solid #7AC;
+}
+
+#evaluating, #buttons {
+    text-align:center;
+    margin:auto;
+}
+
+#evaluating li.notice {
+    width:auto;
+    height:auto;
+    max-width:260px;
+    margin:auto;
+    background:#F7F7F7;
+    border-radius:10px;
+    padding:30px 30px;
+    color:#000;
+    text-align:center;
+    line-height:1.4;
+    cursor:auto;
+    font-size:10pt;
+}
+
+#buttons {
+    margin-top:30px;
+    position:relative;
+    z-index:3;
+}
+
+#shared-list-modal {
+    position:absolute;
+    background:#FFF;
+    margin:60px auto;
+    top:0;
+    right:0;
+    left:0;
+    width:650px;
+    max-width:95%;
+    box-sizing:border-box;
+    padding:20px 50px 50px;
+    box-shadow:1px 1px 5px #333;
+    z-index:100;
+}
+
+@media(max-width:700px) {
+    #shared-list-modal {
+        padding:20px;
+    }
+}
+
+#shared-list-modal:before {
+    content:'';
+    position:fixed;
+    background:#FFF;
+    opacity:0.5;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index:-1;
+}
+
+#shared-list-modal .item-list {
+    text-align:center;
+    margin:2em 0;
+}
+
+#shared-list-modal .close {
+    position:absolute;
+    top:10px;
+    right:10px;
+    width:30px;
+    line-height:30px;
+    color:#AAA;
+    font-weight:bold;
+    text-align:center;
+    background:none;
+    padding:0;
+    font-size:larger;
+}
+
+#shared-list-modal .close:hover {
+    background:#EEE;
+}
+
+#shared-list-modal .buttons {
+    text-align:center;
+    line-height:3.5em;
+}
+
+#shared-list-modal button {
+    padding:0.9em 2em;
+    margin:0 0.2em;
+}
+</style>
+</head>
+<body>
+<center>
+<h1>Monte sua lista de Aberturas preferidas: Kamen Riders (Heisei)</h1>
+
+<p>É só escolher (pode ser mais de uma) entre as opções oferecidas.<br>
+Em teoria, esse resultado é mais sincero do que a nossa escolha pessoal.</p>
+
+<div id="container">
+
+<div id="picking">
+<ul id="evaluating" class="item-list">
+</ul>
+
+<p id="buttons"><button id="pick">Escolher</button> <button id="pass">Pular</button> <button id="undo">Voltar</button></p>
+</div>
+
+<div id="secondary">
+<h2>Sua lista, em ordem:</h2>
+
+<ol id="favorites" class="item-list">
+</ol>
+
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="picker.js"></script>
+<script src="picker-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.7.0/Sortable.min.js"></script>
+
+<script>
+'use strict';
+
+var items = [
+    {id:'kuuga', name:"Kamen Rider Kuuga", image:'rider-pics/kuuga.png'},
+    {id:'agito', name:"Kamen Rider Agito", image:'rider-pics/agito.png'},
+    {id:'ryuki', name:"Kamen Rider Ryuki", image:'rider-pics/ryuki.png'},
+    {id:'faiz', name:"Kamen Rider Faiz", image:'rider-pics/faiz.png'},
+    {id:'blade', name:"Kamen Rider Blade", image:'rider-pics/blade.png'},
+    {id:'hibiki', name:"Kamen Rider Hibiki", image:'rider-pics/hibiki.png'},
+    {id:'kabuto', name:"Kamen Rider Kabuto", image:'rider-pics/kabuto.png'},
+    {id:'deno', name:"Kamen Rider Den-O", image:'rider-pics/deno.png'},
+    {id:'kiva', name:"Kamen Rider Kiva", image:'rider-pics/kiva.png'},
+    {id:'decade', name:"Kamen Rider Decade", image:'rider-pics/decade.png'},
+    {id:'w', name:"Kamen Rider W", image:'rider-pics/w.png'},
+    {id:'ooo', name:"Kamen Rider OOO", image:'rider-pics/ooo.png'},
+    {id:'fourze', name:"Kamen Rider Fourze", image:'rider-pics/fourze.png'},
+    {id:'wizard', name:"Kamen Rider Wizard", image:'rider-pics/wizard.png'},
+    {id:'gaim', name:"Kamen Rider Gaim", image:'rider-pics/gaim.png'},
+    {id:'drive', name:"Kamen Rider Drive", image:'rider-pics/drive.png'},
+    {id:'ghost', name:"Kamen Rider Ghost", image:'rider-pics/ghost.png'},
+    {id:'exaid', name:"Kamen Rider Ex-Aid", image:'rider-pics/exaid.png'},
+    {id:'build', name:"Kamen Rider Build", image:'rider-pics/build.png'},
+    {id:'zio', name:"Kamen Rider Zi-O", image:'rider-pics/zio.png'}
+];
+
+var myPicker = new picker.Picker({
+    items: items
+});
+
+var pickerUI = new PickerUI(myPicker, {
+    elements: {
+        pick: "#pick",
+        pass: "#pass",
+        undo: "#undo",
+        redo: "#redo",
+        evaluating: "#evaluating",
+        favorites: "#favorites",
+        shortcodeLink: "#shortcode-link",
+        sharedListContainer: "#shared-list-modal",
+        sharedList: "#shared-list",
+        sharedListContinue: "#shared-list-continue",
+        sharedListSkip: ".shared-list-skip"
+    }
+});
+
+pickerUI.initialize();
+
+/* Sortable favorites - you can safely remove this, and the Sortable.min.js script, if you don't want to be able to sort your favorite list. */
+var sortable = new Sortable(pickerUI.elem.favorites.get(0), {
+    draggable: '.item',
+    animation: 100,
+    onStart: function() {
+        pickerUI.elem.favorites.addClass("sorting");
+    },
+    onEnd: function() {
+        pickerUI.elem.favorites.removeClass("sorting");
+    },
+    onUpdate: function() {
+        myPicker.setFavorites(pickerUI.elem.favorites.children().map(function() {
+            return pickerUI.getItem(this);
+        }).get());
+        pickerUI.update(true);
+    }
+});
+/* End sortable favorites */
+</script>
+
+<br>
+<h2>Use o vídeo abaixo pra escutar e comparar as músicas.</h2>
+
+<p>
+<button id= 'kuuga' onclick="pulaTempo(0)">Kuuga</button>
+<button id= 'agito' onclick="pulaTempo(78)">Agito</button>
+<button id= 'ryuki' onclick="pulaTempo(148)">Ryuki</button>
+<button id= 'faiz' onclick="pulaTempo(218)">Faiz</button>
+<button id= 'blade' onclick="pulaTempo(288)">Blade</button>
+<button id= 'hibiki' onclick="pulaTempo(360)">Hibiki</button>
+<button id= 'kabuto' onclick="pulaTempo(412)">Kabuto</button>
+<button id= 'deno' onclick="pulaTempo(482)">Den-O</button>
+<button id= 'kiva' onclick="pulaTempo(560)">Kiva</button>
+<button id= 'decade' onclick="pulaTempo(636)">Decade</button>
+<button id= 'w' onclick="pulaTempo(706)">W</button>
+<button id= 'ooo' onclick="pulaTempo(776)">OOO</button>
+<button id= 'fourze' onclick="pulaTempo(849)">Fourze</button>
+<button id= 'wizard' onclick="pulaTempo(934)">Wizard</button>
+<button id= 'gaim' onclick="pulaTempo(1016)">Gaim</button>
+<button id= 'drive' onclick="pulaTempo(1086)">Drive</button>
+<button id= 'ghost' onclick="pulaTempo(1158)">Ghost</button>
+<button id= 'exaid' onclick="pulaTempo(1239)">Ex-Aid</button>
+<button id= 'build' onclick="pulaTempo(1313)">Build</button>
+<button id= 'zio' onclick="pulaTempo(1393)">Zi-O</button>
+</p>
+
+<script>
+function pulaTempo(seconds) {
+	player.seekTo(seconds, true)
+}
+</script>
+
+
+<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+<div id="player"></div>
+<script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '405',
+          width: '720',
+          videoId: 'i_leAH4bVLk',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          //setTimeout(stopVideo, 6000);
+          done = true;
+        }
+      }
+ </script>
+ <p>
+ Criado por <a href="https://twitter.com/QualquerRafa">Rafael</a>, Fevereiro de 2021.<br>
+ <a href="https://power-aberturas.github.io.">Voltar ao inicio</a>
+ </p>
+
+</center>
+</body>
+</html>

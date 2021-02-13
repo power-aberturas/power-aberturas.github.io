@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="initial-scale=1.0">
-<title>Naruto Aberturas</title>
+<title>Pokémon - Aberturas</title>
 <style>
 body {
     background:#FFF;
@@ -20,7 +20,7 @@ a:link, a:visited {
 }
 
 a:active, a:hover {
-    color:#ACF;
+    color:#ff636b; /*light color*/
 }
 
 .info {
@@ -83,7 +83,7 @@ button.disabled:hover {
 }
 
 #pick {
-    background:#f5b042;
+    background:#db0019; /*Darker color*/
     color:#FFF;
     font-size:larger;
     font-weight:bold;
@@ -93,11 +93,11 @@ button.disabled:hover {
 }
 
 #pick.disabled {
-    background:#ACF;
+    background:#ff636b;
 }
 
 #pick:hover {
-    background:#ffd694;
+    background:#ff636b;
 }
 
 .item-list {
@@ -273,9 +273,9 @@ button.disabled:hover {
 </head>
 <body>
 <center>
-<h1>Descubra sua verdadeira abertura preferida</h1>
+<h1>Monte sua lista de Aberturas preferidas: Pokémon</h1>
 
-<p>É só escolher (pode ser mais de uma) entre as opções oferecidas. A matemática faz o resto.<br>
+<p>É só escolher (pode ser mais de uma) entre as opções oferecidas.<br>
 Em teoria, esse resultado é mais sincero do que a nossa escolha pessoal.</p>
 
 <div id="container">
@@ -304,15 +304,26 @@ Em teoria, esse resultado é mais sincero do que a nossa escolha pessoal.</p>
 'use strict';
 
 var items = [
-    {id: 'rocks', name: 'ROCKS (OP1)'},
-    {id: 'haruka', name: 'Haruka Kanata (OP2)'},
-    {id: 'kanashimi', name: 'Kanashimi wo Yasashisa ni (OP3)'},
-    {id: 'go', name: 'GO!!! (OP4)'},
-    {id: 'seishun', name: 'Seishun Kyosokyoku (OP5)'},
-    {id: 'noboy', name: 'No Boy, No Cry (OP6)'},
-    {id: 'namikaze', name: 'Namikaze Satellite (OP7)'},
-    {id: 'remember', name: 'Re:member (OP8)'},
-    {id: 'yurayura', name: 'Yurayura (OP9)'}
+    {id:'indigo', name:"Liga Indigo", image:'pokemon-pics/indigo.png'},
+    {id:'laranja', name:"lhas Laranja", image:'pokemon-pics/laranja.png'},
+    {id:'johto', name:"Jornadas Johto", image:'pokemon-pics/johto.png'},
+    {id:'campeoes', name:"Campeões da Liga Johto", image:'pokemon-pics/campeoes.png'},
+    {id:'master', name:"Master Quest", image:'pokemon-pics/master.png'},
+    {id:'cronicas', name:"Crônicas", image:'pokemon-pics/cronicas.png'},
+    {id:'avancado', name:"Avançado", image:'pokemon-pics/avancado.png'},
+    {id:'desafio', name:"Desafio Avançado", image:'pokemon-pics/desafio.png'},
+    {id:'batalha', name:"Batalha Avançada", image:'pokemon-pics/batalha.png'},
+    {id:'fronteira', name:"Batalha da Fronteira", image:'pokemon-pics/fronteira.png'},
+    {id:'diamante', name:"Diamante e Pérola", image:'pokemon-pics/diamante.png'},
+    {id:'dimensional', name:"Batalha Dimensional", image:'pokemon-pics/dimensional.png'},
+    {id:'galaticas', name:"Batalhas Galáticas", image:'pokemon-pics/galaticas.png'},
+    {id:'vencedores', name:"Vencedores da Liga Sinnoh", image:'pokemon-pics/vencedores.png'},
+    {id:'pretobranco', name:"Preto e Branco", image:'pokemon-pics/pretobranco.png'},
+    {id:'destinos', name:"Destinos Rivais", image:'pokemon-pics/destinos.png'},
+    {id:'aventuras', name:"Aventuras em Unova", image:'pokemon-pics/aventuras.png'},
+    {id:'xy', name:"Série XY", image:'pokemon-pics/xy.png'},
+    {id:'kalos', name:"Kalos Quest", image:'pokemon-pics/kalos.png'},
+    {id:'xyz', name:"Série XY&Z", image:'pokemon-pics/xyz.png'}
 ];
 
 var myPicker = new picker.Picker({
@@ -361,15 +372,26 @@ var sortable = new Sortable(pickerUI.elem.favorites.get(0), {
 <h2>Use o vídeo abaixo pra escutar e comparar as músicas.</h2>
 
 <p>
-<button id= 'rocks' onclick="pulaTempo(0)">ROCKS</button>
-<button id= 'haruka' onclick="pulaTempo(91)">Haruka Kanata</button>
-<button id= 'kanashimi' onclick="pulaTempo(181)">Kanashimi wo Yasashisa ni</button>
-<button id= 'go' onclick="pulaTempo(272)">GO!!!</button>
-<button id= 'seishun' onclick="pulaTempo(362)">Seishun Kyosokyoku</button>
-<button id= 'noboy' onclick="pulaTempo(452)">No Boy, No Cry</button>
-<button id= 'namikaze' onclick="pulaTempo(542)">Namikaze Satellite</button>
-<button id= 'remember' onclick="pulaTempo(632)">Re:member</button>
-<button id= 'yurayura' onclick="pulaTempo(722)">Yurayura</button>
+<button id= 'indigo' onclick="pulaTempo(0)">Liga Indigo</button>
+<button id= 'laranja' onclick="pulaTempo(61)">Ilhas Laranja</button>
+<button id= 'johto' onclick="pulaTempo(123)">Jornadas Johto</button>
+<button id= 'campeoes' onclick="pulaTempo(185)">Campeões da Liga Johto</button>
+<button id= 'master' onclick="pulaTempo(231)">Master Quest</button>
+<button id= 'cronicas' onclick="pulaTempo(276)">Crônicas</button>
+<button id= 'avancado' onclick="pulaTempo(312)">Avançado</button>
+<button id= 'desafio' onclick="pulaTempo(357)">Desafio Avançado</button>
+<button id= 'batalha' onclick="pulaTempo(403)">Batalha Avançada</button>
+<button id= 'fronteira' onclick="pulaTempo(464)">Batalha da Fronteira</button>
+<button id= 'diamante' onclick="pulaTempo(496)">Diamante e Pérola</button>
+<button id= 'dimensional' onclick="pulaTempo(528)">Batalha Dimensional</button>
+<button id= 'galaticas' onclick="pulaTempo(562)">Batalhas Galáticas</button>
+<button id= 'vencedores' onclick="pulaTempo(635)">Vencedores da Liga Sinnoh</button>
+<button id= 'pretobranco' onclick="pulaTempo(673)">Preto e Branco</button>
+<button id= 'destinos' onclick="pulaTempo(705)">Destinos Rivais</button>
+<button id= 'aventuras' onclick="pulaTempo(735)">Aventuras em Unova</button>
+<button id= 'xy' onclick="pulaTempo(796)">Série XY</button>
+<button id= 'kalos' onclick="pulaTempo(826)">Kalos Quest</button>
+<button id= 'xyz' onclick="pulaTempo(856)">Série XY&Z</button>
 </p>
 
 <script>
@@ -396,7 +418,7 @@ function pulaTempo(seconds) {
         player = new YT.Player('player', {
           height: '405',
           width: '720',
-          videoId: 'uMyuSHewmks',
+          videoId: '0QSetk3H4DI',
           events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
@@ -420,7 +442,11 @@ function pulaTempo(seconds) {
         }
       }
  </script>
- <p>Criado por <a href="https://twitter.com/QualquerRafa">Rafael</a>, Fevereiro de 2021.</p>
+ <p>
+ Criado por <a href="https://twitter.com/QualquerRafa">Rafael</a>, Fevereiro de 2021.<br>
+ <a href="https://power-aberturas.github.io.">Voltar ao inicio</a>
+ </p>
+
 
 </center>
 </body>
